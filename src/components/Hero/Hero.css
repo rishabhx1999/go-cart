@@ -8,6 +8,7 @@
   align-items: center;
   max-width: 1200px;
   width: 100%;
+  padding: 50px 0;
 }
 
 .hero-left {
@@ -31,6 +32,7 @@
   line-height: 1.8em;
   color: var(--tertiary-color);
 }
+
 .hero-explore-store-container {
   display: flex;
   justify-content: left;
@@ -60,8 +62,7 @@
   width: 14px;
   height: auto;
   margin-left: 15px;
-  filter: invert(31%) sepia(32%) saturate(335%) hue-rotate(168deg)
-    brightness(90%) contrast(95%);
+  filter: invert(31%) sepia(32%) saturate(335%) hue-rotate(168deg) brightness(90%) contrast(95%);
 }
 
 .hero-image {

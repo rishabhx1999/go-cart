@@ -13,3 +13,75 @@
 a {
   text-decoration: none;
 }
+
+.button-one {
+  border-style: solid;
+  border-radius: 0;
+  padding: 13px 30px 13px 5px;
+  border-width: 2px 2px 2px 0;
+  text-align: center;
+  transition: all 0.3s;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1em;
+  text-transform: uppercase;
+  font-family: "Barlow";
+  display: flex;
+  align-items: center;
+  border-color: var(--primary-color);
+  background-color: #fff;
+  color: var(--primary-color);
+}
+
+.button-one img {
+  width: 14px;
+  height: auto;
+  margin-left: 15px;
+  filter: invert(31%) sepia(32%) saturate(335%) hue-rotate(168deg)
+    brightness(90%) contrast(95%);
+}
+
+h1 {
+  color: var(--primary-color);
+  font-size: 88px;
+  font-family: "Teko";
+  line-height: 1.4em;
+  font-weight: 600;
+}
+
+h3 {
+  color: var(--primary-color);
+  font-size: 40px;
+  font-family: "Teko";
+  line-height: 1.3em;
+  font-weight: 600;
+}
+
+h5 {
+  color: var(--primary-color);
+  font-size: 28px;
+  font-family: "Teko";
+  line-height: 1.3em;
+  font-weight: 600;
+}
+
+h6 {
+  color: var(--primary-color);
+  font-size: 19px;
+  font-family: "Teko";
+  line-height: 1.2em;
+  font-weight: 600;
+}
+
+p {
+  font-family: "Barlow";
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.8em;
+  color: var(--tertiary-color);
+}
+
+ul {
+  list-style: none;
+}

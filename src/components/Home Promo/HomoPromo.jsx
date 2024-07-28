@@ -36,8 +36,8 @@ const HomePromo = () => {
               <h3 className="home-promo-heading-kind-one">
                 Get Printed T-shirt @ $25!
               </h3>
-              <div className="hero-promo-button-container">
-                <a className="home-promo-button" href="#">
+              <div className="home-promo-button">
+                <a className="button-one" href="#">
                   EXPLORE STORE
                   <img src="/assets/double-right.png" />
                 </a>
@@ -59,8 +59,8 @@ const HomePromo = () => {
               <h5 className="home-promo-heading-kind-two">
                 Get Printed Mug @ $15!
               </h5>
-              <div className="hero-promo-button-container">
-                <a className="home-promo-button" href="#">
+              <div className="home-promo-button">
+                <a className="button-one" href="#">
                   VISIT STORE
                   <img src="/assets/double-right.png" />
                 </a>

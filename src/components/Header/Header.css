@@ -1,5 +1,17 @@
 .header-wrapper {
   background-color: #ffffff;
+  width: 100%;
+}
+
+.header-wrapper.sticky {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-wrapper.sticky + .non-header {
+  padding-top: 102px;
 }
 
 .header-container {

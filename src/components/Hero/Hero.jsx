@@ -11,8 +11,8 @@ const Hero = () => {
             Nam at congue diam etiam erat lectus, finibus eget commodo quis,
             congue diam etiam erat lectus.
           </p>
-          <div className="hero-explore-store-container">
-            <a className="hero-explore-store" href="#">
+          <div className="hero-explore-store">
+            <a className="button-one" href="#">
               EXPLORE STORE
               <img src="/assets/double-right.png" />
             </a>

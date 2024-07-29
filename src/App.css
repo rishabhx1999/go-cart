@@ -2,6 +2,7 @@
   --primary-color: #415161;
   --secondary-color: #2ecc71;
   --tertiary-color: #67727d;
+  --quarternary-color: #191919;
   --accent-color: #f2295b;
 }
 
@@ -38,8 +39,7 @@ a {
   width: 14px;
   height: auto;
   margin-left: 15px;
-  filter: invert(31%) sepia(32%) saturate(335%) hue-rotate(168deg)
-    brightness(90%) contrast(95%);
+  filter: invert(31%) sepia(32%) saturate(335%) hue-rotate(168deg) brightness(90%) contrast(95%);
 }
 
 h1 {

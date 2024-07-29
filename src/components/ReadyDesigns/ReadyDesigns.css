@@ -1,0 +1,42 @@
+.ready-designs-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.ready-designs-container {
+    padding: 25px 0 50px;
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.ready-design-content {
+    width: 50%;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ready-design-content h3 {
+    margin: 0;
+}
+
+.ready-design-content p {
+    margin: 0 0 50px;
+}
+
+.ready-design-content .explore-designs {
+    display: flex;
+}
+
+.ready-designs-container>img {
+    max-width: 50%;
+    width: 100%;
+    padding: 50px;
+    transition: filter 0.5s ease-in-out;
+}
+
+.ready-designs-container img.blur {
+    filter: blur(5px);
+}

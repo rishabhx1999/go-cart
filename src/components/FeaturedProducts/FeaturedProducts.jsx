@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import "./FeaturedProducts.css";
 
 const FeaturedProducts = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [categoryIndex, setCategoryIndex] = useState(0);
+  const [quickViewIndex, setQuickViewIndex] = useState(null);
+  const [quantities, setQuantities] = useState({});
 
   const categories = ["Tshirts", "Mugs"];
   const products = {
@@ -15,6 +17,14 @@ const FeaturedProducts = () => {
         rating: 4,
         oldPrice: "£35.00",
         newPrice: "£27.00",
+        description:
+          "Neque porro quisquam est, qui dolore ipsum quia dolor sit amet, consectetur adipisci velit, sed quia non incidunt lores ta porro ame. numquam eius modi tempora incidunt lores ta porro ame.",
+        extrasHeading: "Free shipping on orders over $50!",
+        extras: [
+          "No-Risk Money Back Guarantee!",
+          "No Hassle Refunds",
+          "Secure Payments",
+        ],
       },
       {
         image: "/assets/fp-tshirts-2.jpg",
@@ -24,6 +34,14 @@ const FeaturedProducts = () => {
         rating: 5,
         oldPrice: "£34.00",
         newPrice: "£32.00",
+        description:
+          "Neque porro quisquam est, qui dolore ipsum quia dolor sit amet, consectetur adipisci velit, sed quia non incidunt lores ta porro ame. numquam eius modi tempora incidunt lores ta porro ame.",
+        extrasHeading: "Free shipping on orders over $50!",
+        extras: [
+          "No-Risk Money Back Guarantee!",
+          "No Hassle Refunds",
+          "Secure Payments",
+        ],
       },
       {
         image: "/assets/fp-tshirts-3.jpg",
@@ -33,6 +51,14 @@ const FeaturedProducts = () => {
         rating: 4,
         oldPrice: "£34.00",
         newPrice: "£32.00",
+        description:
+          "Neque porro quisquam est, qui dolore ipsum quia dolor sit amet, consectetur adipisci velit, sed quia non incidunt lores ta porro ame. numquam eius modi tempora incidunt lores ta porro ame.",
+        extrasHeading: "Free shipping on orders over $50!",
+        extras: [
+          "No-Risk Money Back Guarantee!",
+          "No Hassle Refunds",
+          "Secure Payments",
+        ],
       },
       {
         image: "/assets/fp-tshirts-4.jpg",
@@ -42,6 +68,14 @@ const FeaturedProducts = () => {
         rating: 5,
         oldPrice: "£34.00",
         newPrice: "£25.00",
+        description:
+          "Neque porro quisquam est, qui dolore ipsum quia dolor sit amet, consectetur adipisci velit, sed quia non incidunt lores ta porro ame. numquam eius modi tempora incidunt lores ta porro ame.",
+        extrasHeading: "Free shipping on orders over $50!",
+        extras: [
+          "No-Risk Money Back Guarantee!",
+          "No Hassle Refunds",
+          "Secure Payments",
+        ],
       },
     ],
     Mugs: [
@@ -84,8 +118,48 @@ const FeaturedProducts = () => {
     ],
   };
 
-  const handleItemClick = (index) => {
-    setActiveIndex(index);
+  const handleCategoryClick = (index) => {
+    setCategoryIndex(index);
+    setQuickViewIndex(null);
+  };
+
+  const handleQuickViewClick = (index) => {
+    setQuickViewIndex(index);
+  };
+
+  const handleQuickViewClose = () => {
+    setQuickViewIndex(null);
+  };
+
+  const handleQuantityChange = (productIndex, delta) => {
+    setQuantities((prevQuantities) => {
+      const category = categories[categoryIndex];
+      const newQuantities = { ...prevQuantities };
+      newQuantities[category] = newQuantities[category] || {};
+      console.log(
+        "handleQuantityChange" + newQuantities[category][productIndex]
+      );
+      newQuantities[category][productIndex] =
+        (newQuantities[category][productIndex] || 1) + delta;
+      if (newQuantities[category][productIndex] < 1) {
+        newQuantities[category][productIndex] = 1;
+      }
+      return newQuantities;
+    });
+  };
+
+  const handleAddToCart = (productIndex) => {
+    const category = categories[categoryIndex];
+    const quantity = quantities[category]?.[productIndex] || 1;
+    if (quantity < 1 || !Number.isInteger(quantity)) {
+      alert("Quantity must be a natural number");
+      return;
+    }
+    // Code to add the product to the cart with the specified quantity.
+    // Display the check image after adding to the cart.
+    document.getElementById(
+      `check-img-${category}-${productIndex}`
+    ).style.display = "inline-block";
   };
 
   return (
@@ -96,19 +170,24 @@ const FeaturedProducts = () => {
           {categories.map((item, index) => (
             <li
               key={index}
-              className={activeIndex === index ? "active" : ""}
-              onClick={() => handleItemClick(index)}
+              className={categoryIndex === index ? "active" : ""}
+              onClick={() => handleCategoryClick(index)}
             >
               {item}
             </li>
           ))}
         </ul>
         <ul className="products-list">
-          {products[categories[activeIndex]].map((product, index) => (
+          {products[categories[categoryIndex]].map((product, index) => (
             <li key={index}>
               <div className="product-image-container">
                 <img src={product.image} alt={product.name} />
-                <div className="quick-view-button">Quick View</div>
+                <div
+                  className="quick-view-button"
+                  onClick={() => handleQuickViewClick(index)}
+                >
+                  Quick View
+                </div>
               </div>
               {product.sale && <div className="sale">Sale!</div>}
               <span className="category-name">{product.categoryName}</span>
@@ -131,13 +210,102 @@ const FeaturedProducts = () => {
                 <ins> {product.newPrice}</ins>
               </span>
 
-              <div className="quick-view-background">
-                <div className="loader"></div>
-              </div>
+              {quickViewIndex === index && (
+                <>
+                  <div
+                    className="quick-view-background"
+                    onClick={() => handleQuickViewClose(index)}
+                  >
+                    <div className="loader"></div>
+                  </div>
 
-              <div className="quick-view-container">
-                <div className="quick-view"></div>
-              </div>
+                  <div className="quick-view-wrapper">
+                    <div className="quick-view-container">
+                      <div className="quick-view">
+                        <div className="product-image-container">
+                          <img src={product.image} alt={product.name} />
+                          {product.sale && <div className="sale">Sale!</div>}
+                        </div>
+                        <div className="product-info">
+                          <a href="#">
+                            <h5>{product.name}</h5>
+                          </a>
+                          <span className="price">
+                            {product.oldPrice && <del>{product.oldPrice}</del>}
+                            <ins> {product.newPrice}</ins>
+                          </span>
+                          <p className="description">{product.description}</p>
+                          <form action="" className="cart">
+                            <div className="quantity">
+                              <span
+                                className="minus"
+                                onClick={() => handleQuantityChange(index, -1)}
+                              >
+                                -
+                              </span>
+                              <input
+                                type="number"
+                                value={
+                                  quantities[categories[categoryIndex]]?.[
+                                    index
+                                  ] || 1
+                                }
+                                min="1"
+                                readOnly
+                              />
+                              <span
+                                className="plus"
+                                onClick={() => handleQuantityChange(index, 1)}
+                              >
+                                +
+                              </span>
+                            </div>
+                            <div className="add-to-cart">
+                              <a
+                                href="#"
+                                className="button-one"
+                                onClick={() => handleAddToCart(index)}
+                              >
+                                ADD TO CART
+                                <img
+                                  src="/assets/check.png"
+                                  alt=""
+                                  id={`check-img-${categories[categoryIndex]}-${index}`}
+                                  style={{ display: "none" }}
+                                />
+                              </a>
+                            </div>
+                          </form>
+                          <p className="category-name">
+                            Category: <a>{product.categoryName}</a>
+                          </p>
+                          {product.extrasHeading && (
+                            <p className="extras-heading">
+                              {product.extrasHeading}
+                            </p>
+                          )}
+                          {product.extras && (
+                            <ul>
+                              {product.extras.map((extra, idx) => (
+                                <li key={idx}>
+                                  <img src="/assets/check-circle.png" alt="" />
+                                  {extra}
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className="close"
+                      onClick={() => handleQuickViewClose(index)}
+                    >
+                      <img src="/assets/close.png" alt="" />
+                    </div>
+                  </div>
+                </>
+              )}
             </li>
           ))}
         </ul>

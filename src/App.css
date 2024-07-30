@@ -3,6 +3,7 @@
   --secondary-color: #2ecc71;
   --tertiary-color: #67727d;
   --quarternary-color: #191919;
+  --quinary-color: #5e5e5e;
   --accent-color: #f2295b;
 }
 
@@ -36,7 +37,7 @@ a {
 }
 
 .button-one img {
-  width: 14px;
+  width: 10px;
   height: auto;
   margin-left: 15px;
   filter: invert(31%) sepia(32%) saturate(335%) hue-rotate(168deg) brightness(90%) contrast(95%);

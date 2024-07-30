@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Header.css";
 
 const Header = () => {
-  window.onscroll = function () {
-    myFunction();
-  };
+  const [cartOpen, setCartOpen] = useState(false);
+  const [cartItems, setCartItems] = useState([
+    {
+      image: "/assets/fp-tshirts-1.jpg",
+      name: "Printed Blue Tshirt",
+      newPrice: 27.00,
+      quantity: 4,
+    },
+    {
+      image: "/assets/fp-tshirts-2.jpg",
+      name: "Printed Green Tshirt",
+      newPrice: 32.00,
+      quantity: 2,
+    },
+  ]);
+
+  useEffect(() => {
+    window.onscroll = function () {
+      myFunction();
+    };
+  }, []);
 
   function myFunction() {
     var header = document.getElementById("myHeader");
@@ -15,6 +33,32 @@ const Header = () => {
       header.classList.remove("sticky");
     }
   }
+
+  const toggleCart = () => {
+    setCartOpen(!cartOpen);
+  };
+
+  const incrementQuantity = (index) => {
+    const updatedCartItems = [...cartItems];
+    updatedCartItems[index].quantity += 1;
+    setCartItems(updatedCartItems);
+  };
+
+  const decrementQuantity = (index) => {
+    const updatedCartItems = [...cartItems];
+    if (updatedCartItems[index].quantity > 1) {
+      updatedCartItems[index].quantity -= 1;
+      setCartItems(updatedCartItems);
+    }
+  };
+
+  const calculateTotalPrice = (item) => {
+    return (item.newPrice * item.quantity).toFixed(2);
+  };
+
+  const calculateSubtotal = () => {
+    return cartItems.reduce((total, item) => total + item.newPrice * item.quantity, 0).toFixed(2);
+  };
 
   return (
     <div className="header-wrapper" id="myHeader">
@@ -69,11 +113,60 @@ const Header = () => {
               </ul>
             </li>
           </ul>
-          <div className="header-cart">
+          <div className="header-cart" onClick={toggleCart}>
             ₹0.00
             <div className="cart-icon">
               <img src="/assets/shopping-basket.png" />
               <div className="items-count">0</div>
+            </div>
+          </div>
+          {cartOpen && (
+            <div
+              className={`cart-drawer-background ${cartOpen ? "open" : ""}`}
+              onClick={toggleCart}
+            ></div>
+          )}
+          <div className={`cart-drawer ${cartOpen ? "open" : ""}`}>
+            <div className="cart-header">
+              <span>Shopping Cart</span>
+              <img src="/assets/close.png" alt="" onClick={toggleCart} />
+            </div>
+            {cartItems && (
+              <ul className="items-added">
+                {cartItems.map((item, index) => (
+                  <li key={index}>
+                    <img src={item.image} alt={item.name} />
+                    <div className="item-cart-info">
+                      <div>
+                        <span className="item-name">{item.name}</span>
+                        <img src="/assets/close-circle.png" alt="" />
+                      </div>
+                      <div>
+                        <div className="quantity-change">
+                          <span className="minus" onClick={() => decrementQuantity(index)}>-</span>
+                          <input type="number" value={item.quantity} min="1" readOnly />
+                          <span className="plus" onClick={() => incrementQuantity(index)}>+</span>
+                        </div>
+                        <span className="item-total">£{calculateTotalPrice(item)}</span>
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            )}
+            <div className="cart-footer">
+              <div className="sub-total">
+                <span>Subtotal:</span>
+                <span>£{calculateSubtotal()}</span>
+              </div>
+              <div className="buttons">
+                <a href="" className="button-one">
+                  VIEW CART
+                </a>
+                <a href="" className="button-one">
+                  CHECKOUT
+                </a>
+              </div>
             </div>
           </div>
         </div>

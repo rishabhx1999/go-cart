@@ -8,6 +8,7 @@ import FeaturedProducts from "./components/FeaturedProducts/FeaturedProducts";
 import IntroVideo from "./components/IntroVideo/IntroVideo";
 import ReadyDesigns from "./components/ReadyDesigns/ReadyDesigns";
 import HomePromo2 from "./components/HomePromo2/HomePromo2";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <ReadyDesigns />
         <HomePromo2 />
       </div>
+      <Footer />
     </div>
   );
 }

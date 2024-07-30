@@ -1,27 +1,19 @@
 import logo from "./logo.svg";
 import "./App.css";
 import Header from "./components/Header/Header";
-import Hero from "./components/Hero/Hero";
-import HomoPromo from "./components/HomePromo/HomoPromo";
-import ColorOfTheMonth from "./components/ColorOfTheMonth/ColorOfTheMonth";
-import FeaturedProducts from "./components/FeaturedProducts/FeaturedProducts";
-import IntroVideo from "./components/IntroVideo/IntroVideo";
-import ReadyDesigns from "./components/ReadyDesigns/ReadyDesigns";
-import HomePromo2 from "./components/HomePromo2/HomePromo2";
 import Footer from "./components/Footer/Footer";
+import Home from "./pages/Home/Home";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
       <Header />
       <div className="non-header">
-        <Hero />
-        <HomoPromo />
-        <ColorOfTheMonth />
-        <FeaturedProducts />
-        <IntroVideo />
-        <ReadyDesigns />
-        <HomePromo2 />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+        </Routes>
       </div>
       <Footer />
     </div>

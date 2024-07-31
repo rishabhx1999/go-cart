@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Header.css";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   const [cartOpen, setCartOpen] = useState(false);
@@ -7,13 +8,13 @@ const Header = () => {
     {
       image: "/assets/fp-tshirts-1.jpg",
       name: "Printed Blue Tshirt",
-      newPrice: 27.00,
+      newPrice: 27.0,
       quantity: 4,
     },
     {
       image: "/assets/fp-tshirts-2.jpg",
       name: "Printed Green Tshirt",
-      newPrice: 32.00,
+      newPrice: 32.0,
       quantity: 2,
     },
   ]);
@@ -57,7 +58,9 @@ const Header = () => {
   };
 
   const calculateSubtotal = () => {
-    return cartItems.reduce((total, item) => total + item.newPrice * item.quantity, 0).toFixed(2);
+    return cartItems
+      .reduce((total, item) => total + item.newPrice * item.quantity, 0)
+      .toFixed(2);
   };
 
   return (
@@ -67,34 +70,46 @@ const Header = () => {
         <div className="header-right">
           <ul className="header-menu">
             <li>
-              <div>
-                <a>HOME</a>
-              </div>
+              <NavLink to="/">
+                <div>
+                  <a>HOME</a>
+                </div>
+              </NavLink>
             </li>
             <li>
-              <div>
-                <a>ALL PRODUCTS</a>
-              </div>
+              <NavLink to="/shop">
+                <div>
+                  <a>ALL PRODUCTS</a>
+                </div>
+              </NavLink>
             </li>
             <li>
-              <div>
-                <a>TSHIRTS</a>
-              </div>
+              <NavLink to="/tshirts">
+                <div>
+                  <a>TSHIRTS</a>
+                </div>
+              </NavLink>
             </li>
             <li>
-              <div>
-                <a>MUGS</a>
-              </div>
+              <NavLink to="/mugs">
+                <div>
+                  <a>MUGS</a>
+                </div>
+              </NavLink>
             </li>
             <li>
-              <div>
-                <a>ABOUT HDX</a>
-              </div>
+              <NavLink to="/about">
+                <div>
+                  <a>ABOUT HDX</a>
+                </div>
+              </NavLink>
             </li>
             <li>
-              <div>
-                <a>CONTACT</a>
-              </div>
+              <NavLink to="/contact">
+                <div>
+                  <a>CONTACT</a>
+                </div>
+              </NavLink>
             </li>
             <li>
               <div>
@@ -143,11 +158,28 @@ const Header = () => {
                       </div>
                       <div>
                         <div className="quantity-change">
-                          <span className="minus" onClick={() => decrementQuantity(index)}>-</span>
-                          <input type="number" value={item.quantity} min="1" readOnly />
-                          <span className="plus" onClick={() => incrementQuantity(index)}>+</span>
+                          <span
+                            className="minus"
+                            onClick={() => decrementQuantity(index)}
+                          >
+                            -
+                          </span>
+                          <input
+                            type="number"
+                            value={item.quantity}
+                            min="1"
+                            readOnly
+                          />
+                          <span
+                            className="plus"
+                            onClick={() => incrementQuantity(index)}
+                          >
+                            +
+                          </span>
                         </div>
-                        <span className="item-total">£{calculateTotalPrice(item)}</span>
+                        <span className="item-total">
+                          £{calculateTotalPrice(item)}
+                        </span>
                       </div>
                     </div>
                   </li>

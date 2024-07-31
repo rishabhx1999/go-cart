@@ -46,6 +46,10 @@
   cursor: pointer;
 }
 
+.header-menu>li>a.active a {
+  color: var(--accent-color);
+}
+
 .header-menu li div {
   height: 100%;
   display: flex;
@@ -61,7 +65,7 @@
   color: var(--primary-color);
 }
 
-.header-menu>li:hover>div>a {
+.header-menu>li:hover>a>div>a {
   color: var(--accent-color);
 }
 

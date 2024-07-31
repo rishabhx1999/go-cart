@@ -1,5 +1,6 @@
 import React from "react";
 import "./HomePromo.css";
+import { NavLink } from "react-router-dom";
 
 const HomePromo = () => {
   return (
@@ -37,10 +38,10 @@ const HomePromo = () => {
                 Get Printed T-shirt @ $25!
               </h3>
               <div className="home-promo-button">
-                <a className="button-one" href="#">
+                <NavLink className="button-one" to="/shop">
                   EXPLORE STORE
                   <img src="/assets/double-right.png" />
-                </a>
+                </NavLink>
               </div>
             </div>
             <div className="home-promo-action"></div>
@@ -60,10 +61,10 @@ const HomePromo = () => {
                 Get Printed Mug @ $15!
               </h5>
               <div className="home-promo-button">
-                <a className="button-one" href="#">
+                <NavLink className="button-one" to="/shop">
                   VISIT STORE
                   <img src="/assets/double-right.png" />
-                </a>
+                </NavLink>
               </div>
             </div>
           </div>
@@ -85,7 +86,7 @@ const HomePromo = () => {
           ></div>
           <div className="home-promo-kind-four">
             <div className="home-promo-content-kind-three">
-                <img src="/assets/plus-icon.png" alt="" />
+              <img src="/assets/plus-icon.png" alt="" />
               <h6 className="home-promo-heading-kind-three">Get Your Own</h6>
             </div>
           </div>

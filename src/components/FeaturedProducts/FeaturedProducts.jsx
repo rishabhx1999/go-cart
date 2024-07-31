@@ -155,8 +155,6 @@ const FeaturedProducts = () => {
       alert("Quantity must be a natural number");
       return;
     }
-    // Code to add the product to the cart with the specified quantity.
-    // Display the check image after adding to the cart.
     document.getElementById(
       `check-img-${category}-${productIndex}`
     ).style.display = "inline-block";

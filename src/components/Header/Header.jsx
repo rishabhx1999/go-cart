@@ -84,21 +84,21 @@ const Header = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/tshirts">
+              <NavLink to="/product-category/tshirts/">
                 <div>
                   <a>TSHIRTS</a>
                 </div>
               </NavLink>
             </li>
             <li>
-              <NavLink to="/mugs">
+              <NavLink to="/product-category/mugs/">
                 <div>
                   <a>MUGS</a>
                 </div>
               </NavLink>
             </li>
             <li>
-              <NavLink to="/about">
+              <NavLink to="/about-hdx/">
                 <div>
                   <a>ABOUT HDX</a>
                 </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import "./Footer.css";
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -7,24 +8,24 @@ const Footer = () => {
       <div className="footer-main">
         <ul>
           <li>
-            <a href="">Home</a>
+            <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <a href="">About HDX</a>
+            <NavLink to="/about-hdx/">About HDX</NavLink>
           </li>
           <li>
-            <a href="">My account</a>
+            <NavLink>My account</NavLink>
           </li>
         </ul>
         <ul>
           <li>
-            <a href="">Tshirts</a>
+            <NavLink to="/product-category/tshirts/">Tshirts</NavLink>
           </li>
           <li>
-            <a href="">Mugs</a>
+            <NavLink to="/product-category/mugs/">Mugs</NavLink>
           </li>
           <li>
-            <a href="">Contact</a>
+            <NavLink>Contact</NavLink>
           </li>
         </ul>
         <div></div>

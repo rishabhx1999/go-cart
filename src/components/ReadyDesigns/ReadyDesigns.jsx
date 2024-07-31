@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./ReadyDesigns.css";
+import { NavLink } from "react-router-dom";
 
 const ReadyDesigns = () => {
   const images = [
@@ -34,9 +35,9 @@ const ReadyDesigns = () => {
             congue diam etiam erat lectus.
           </p>
           <div className="explore-designs">
-            <a href="" className="button-one">
+            <NavLink to="/product-category/mugs/" className="button-one">
               EXPLORE DESIGNS <img src="/assets/double-right.png" alt="" />
-            </a>
+            </NavLink>
           </div>
         </div>
         <img

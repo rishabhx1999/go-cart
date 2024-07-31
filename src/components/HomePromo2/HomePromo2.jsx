@@ -1,5 +1,6 @@
 import React from "react";
 import "./HomePromo2.css";
+import { NavLink } from "react-router-dom";
 
 const HomePromo2 = () => {
   return (
@@ -17,10 +18,10 @@ const HomePromo2 = () => {
           <h3>Printed Tshirt For $25!</h3>
           <p>Nam at congue diam. Etiam erat lectus, finibus eget commodo.</p>
           <div className="order-now">
-            <a href="" className="button-one">
+            <NavLink to="/product-category/tshirts/" className="button-one">
               ORDER NOW
               <img src="/assets/double-right.png" alt="" />
-            </a>
+            </NavLink>
           </div>
         </div>
       </div>
@@ -37,10 +38,10 @@ const HomePromo2 = () => {
           <h3>Printed Mug For $15!</h3>
           <p>Nam at congue diam. Etiam erat lectus, finibus eget commodo.</p>
           <div className="explore-designs">
-            <a href="" className="button-one">
+            <NavLink to="/product-category/mugs/" className="button-one">
               EXPLORE DESIGNS
               <img src="/assets/double-right.png" alt="" />
-            </a>
+            </NavLink>
           </div>
         </div>
       </div>

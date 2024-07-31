@@ -24,8 +24,8 @@ const ColorOfTheMonth = () => {
           <h3>Grab This Limited Time Offer</h3>
           <div className="cotm-action-button">
             <a className="button-one" href="#">
+              ORDER NOW
               <img src="/assets/double-right.png" />
-              EXPLORE STORE
             </a>
           </div>
         </div>

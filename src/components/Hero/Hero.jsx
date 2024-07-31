@@ -1,5 +1,6 @@
 import React from "react";
 import "./Hero.css";
+import { NavLink } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -12,10 +13,10 @@ const Hero = () => {
             congue diam etiam erat lectus.
           </p>
           <div className="hero-explore-store">
-            <a className="button-one" href="#">
+            <NavLink to="/shop" className="button-one">
               EXPLORE STORE
               <img src="/assets/double-right.png" />
-            </a>
+            </NavLink>
           </div>
         </div>
         <img className="hero-image" src="/assets/boy.png" alt="" />

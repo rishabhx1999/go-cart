@@ -31,6 +31,27 @@ const CompanyIntro = () => {
                 velit, sed quia non numquam eius modi tempora incidunt lor.
               </p>
             </div>
+            <div className="company-intro-para">
+              <h5>How It Started</h5>
+              <p>
+                Qui dolore ipsum quia dolor sit amet, consectetur adipisci
+                velit, sed quia non numquam eius modi tempora incidunt lor.
+              </p>
+            </div>
+            <div className="company-intro-para">
+              <h5>Why Choose Us</h5>
+              <p>
+                Qui dolore ipsum quia dolor sit amet, consectetur adipisci
+                velit, sed quia non numquam eius modi tempora incidunt lor.
+              </p>
+            </div>
+            <div className="company-intro-para">
+              <h5>How It Works</h5>
+              <p>
+                Qui dolore ipsum quia dolor sit amet, consectetur adipisci
+                velit, sed quia non numquam eius modi tempora incidunt lor.
+              </p>
+            </div>
           </div>
         </div>
       </div>

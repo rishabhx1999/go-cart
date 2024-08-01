@@ -6,6 +6,8 @@ import Home from "./components/Home/Home";
 import { Route, Routes } from "react-router-dom";
 import Shop from "./components/Shop/Shop";
 import AboutHDX from "./components/AboutHDX/AboutHDX";
+import Contact from "./components/Contact/Contact";
+import Login from "./components/Login/Login";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
           <Route path="/product-category/tshirts/" element={<Shop />} />
           <Route path="/product-category/mugs/" element={<Shop />} />
           <Route path="/about-hdx/" element={<AboutHDX />} />
+          <Route path="/contact/" element={<Contact />} />
+          <Route path="/login/" element={<Login />} />
         </Routes>
       </div>
       <Footer />

@@ -73,6 +73,7 @@
 
 .company-intro-content>div:last-child {
     width: 100%;
+    display: flex;
 }
 
 .company-intro-para {

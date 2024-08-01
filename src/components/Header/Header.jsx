@@ -105,7 +105,7 @@ const Header = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/contact">
+              <NavLink to="/contact/">
                 <div>
                   <a>CONTACT</a>
                 </div>
@@ -119,19 +119,23 @@ const Header = () => {
                 </a>
               </div>
               <ul className="account-options">
-                <li>
-                  <a>MY ACCOUNT</a>
-                </li>
-                <li>
-                  <a>CART</a>
-                </li>
+                <NavLink to="/login/">
+                  <li>
+                    <a>MY ACCOUNT</a>
+                  </li>
+                </NavLink>
+                <NavLink to="/cart/">
+                  <li>
+                    <a>CART</a>
+                  </li>
+                </NavLink>
               </ul>
             </li>
           </ul>
           <div className="header-cart" onClick={toggleCart}>
             ₹0.00
             <div className="cart-icon">
-              <img src="/assets/shopping-basket.png" />
+              <img src="/assets/shopping-cart.png" />
               <div className="items-count">0</div>
             </div>
           </div>

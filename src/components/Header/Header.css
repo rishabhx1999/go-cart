@@ -104,6 +104,10 @@
   color: var(--accent-color);
 }
 
+.header-menu .account-options a.active li a {
+  color: var(--accent-color);
+}
+
 .header-cart {
   display: flex;
   align-items: center;

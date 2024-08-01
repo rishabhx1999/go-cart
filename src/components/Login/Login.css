@@ -1,0 +1,82 @@
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(245, 245, 245);
+}
+
+.login-container {
+    width: 100%;
+    max-width: 1240px;
+    padding: 85px 127px;
+    margin: 64px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-container h5 {
+    line-height: 1.2;
+    margin-bottom: 27px;
+}
+
+.login-main {
+    max-width: 540px;
+    width: 100%;
+    margin: 32px auto;
+    padding: 40px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-main h3 {
+    font-weight: bold;
+    margin: 0 0 24px;
+    text-align: center;
+}
+
+.login-form label {
+    position: absolute;
+    color: var(--tertiary-color);
+    font-size: 11px;
+    margin-top: 9px;
+    padding: 0 13px;
+    line-height: 1.625;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 95%;
+    text-overflow: ellipsis;
+    z-index: 1;
+    transition: opacity .2s ease-out;
+    opacity: 0;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 14px 13px;
+    margin: 3px 3px 23px;
+    background-color: #fff;
+    border-color: #dddddd;
+    color: #666;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.8em;
+    outline: 0;
+    font-family: "Barlow";
+}
+
+.login-form label:has(+input:focus) {
+    opacity: 1;
+}
+
+.login-form input:focus {
+    border-color: #dddddd;
+    border-width: 1px;
+    border-style: solid;
+    color: black;
+    outline: none;
+    padding: 23px 13px 6px;
+}

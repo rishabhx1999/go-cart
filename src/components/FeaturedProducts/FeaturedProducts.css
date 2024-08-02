@@ -43,9 +43,12 @@
   display: flex;
 }
 
-.featured-products-container .products-list>li {
+.featured-products-container .products-list>a {
   width: 25%;
   margin: 0 10px 40px;
+}
+
+.featured-products-container .products-list>a>li {
   display: flex;
   flex-direction: column;
   position: relative;

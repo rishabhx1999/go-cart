@@ -1,0 +1,208 @@
+.cart-wrapper {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(245, 245, 245);
+}
+
+.cart-container {
+    width: 100%;
+    max-width: 1240px;
+    padding: 85px 127px;
+    margin: 64px auto;
+}
+
+.cart-container h5 {
+    line-height: 1.2;
+    margin: 0 0 27px;
+}
+
+.cart-main {
+    display: flex;
+}
+
+.cart-items {
+    margin: 0 20px 32px 0;
+    border: 1px solid #dddddd;
+    border-color: separate;
+    border-spacing: 0;
+    text-align: left;
+    width: 70%;
+}
+
+.cart-items th {
+    padding: 11px 16px;
+    font-weight: 700;
+    font-family: "Barlow";
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.8em;
+    color: var(--tertiary-color);
+}
+
+.cart-items td {
+    padding: 11px 16px;
+    min-height: 52px;
+    border-top: 1px solid #dddddd;
+    color: var(--tertiary-color);
+    font-size: 16px;
+    line-height: 1.8em;
+}
+
+.cart-items .remove-product img {
+    width: 20px;
+    height: 20px;
+    filter: invert(44%) sepia(11%) saturate(463%) hue-rotate(169deg) brightness(96%) contrast(92%);
+    cursor: pointer;
+}
+
+.cart-items .product-image img {
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+}
+
+.cart-items td.product-name {
+    color: var(--accent-color);
+    font-weight: 500;
+}
+
+.cart-items td.product-quantity div {
+    display: flex;
+}
+
+.cart-items td.product-price {
+    font-weight: 400;
+}
+
+.cart-items td.product-quantity .minus {
+    font-size: 18px;
+    color: var(--tertiary-color);
+    font-weight: 400;
+    border: 1px solid #dddddd;
+    border-right: none;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.cart-items td.product-quantity input {
+    font-size: 16px;
+    color: var(--tertiary-color);
+    font-weight: 400;
+    border: 1px solid #dddddd;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+.cart-items td.product-quantity .plus {
+    font-size: 18px;
+    color: var(--tertiary-color);
+    font-weight: 400;
+    border: 1px solid #dddddd;
+    border-left: none;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-total {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #dddddd;
+    width: 30%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.cart-total h6 {
+    border-bottom: 1px solid #dddddd;
+    font-weight: 700;
+    margin: 0 0 20px;
+    padding: 14px 16px;
+}
+
+.cart-total table {
+    margin: 0 16px 6px;
+    text-align: left;
+}
+
+.cart-total table th {
+    border-bottom: 1px solid #dddddd;
+    line-height: 1.5em;
+    width: 40%;
+    font-weight: 500;
+    padding: 11px 16px;
+    font-family: "Barlow";
+    font-size: 16px;
+    color: var(--tertiary-color);
+    margin: 0;
+}
+
+.cart-total table td {
+    border-bottom: 1px solid #dddddd;
+    line-height: 1.5em;
+    width: 40%;
+    font-weight: 500;
+    padding: 11px 16px;
+    font-family: "Barlow";
+    font-size: 16px;
+    color: var(--tertiary-color);
+    margin: 0;
+}
+
+.cart-total p {
+    margin: 32px 16px 0;
+    cursor: pointer;
+}
+
+.cart-total .coupon {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 32px 16px 0;
+}
+
+.cart-total .coupon input {
+    width: 70%;
+    background-color: #fff;
+    border-radius: 0;
+    color: #666;
+    padding: 12px;
+    border: 1px solid #dddddd;
+    font-family: "Barlow";
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.8em;
+    outline: none;
+}
+
+.cart-total .coupon .button-one {
+    width: 28%;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.cart-total>.button-one {
+    background-color: transparent;
+    margin: 16px 16px 32px;
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    line-height: 1.8em;
+}

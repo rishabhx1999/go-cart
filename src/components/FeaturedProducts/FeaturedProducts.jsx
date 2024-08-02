@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./FeaturedProducts.css";
+import { NavLink } from "react-router-dom";
 
 const FeaturedProducts = () => {
   const [categoryIndex, setCategoryIndex] = useState(0);
@@ -177,134 +178,143 @@ const FeaturedProducts = () => {
         </ul>
         <ul className="products-list">
           {products[categories[categoryIndex]].map((product, index) => (
-            <li key={index}>
-              <div className="product-image-container">
-                <img src={product.image} alt={product.name} />
-                <div
-                  className="quick-view-button"
-                  onClick={() => handleQuickViewClick(index)}
-                >
-                  Quick View
-                </div>
-              </div>
-              {product.sale && <div className="sale">Sale!</div>}
-              <span className="category-name">{product.categoryName}</span>
-              <h6>{product.name}</h6>
-              <div className="rating-container">
-                {Array.from({ length: 5 }).map((_, idx) => (
-                  <img
-                    src={
-                      idx < product.rating
-                        ? "/assets/rating-fill.png"
-                        : "/assets/rating-empty.png"
-                    }
-                    alt="rating"
-                    key={idx}
-                  />
-                ))}
-              </div>
-              <span className="price">
-                {product.oldPrice && <del>{product.oldPrice}</del>}
-                <ins> {product.newPrice}</ins>
-              </span>
-
-              {quickViewIndex === index && (
-                <>
+            <NavLink to="/product/">
+              <li key={index}>
+                <div className="product-image-container">
+                  <img src={product.image} alt={product.name} />
                   <div
-                    className="quick-view-background"
-                    onClick={() => handleQuickViewClose(index)}
+                    className="quick-view-button"
+                    onClick={() => handleQuickViewClick(index)}
                   >
-                    <div className="loader"></div>
+                    Quick View
                   </div>
+                </div>
+                {product.sale && <div className="sale">Sale!</div>}
+                <span className="category-name">{product.categoryName}</span>
+                <h6>{product.name}</h6>
+                <div className="rating-container">
+                  {Array.from({ length: 5 }).map((_, idx) => (
+                    <img
+                      src={
+                        idx < product.rating
+                          ? "/assets/rating-fill.png"
+                          : "/assets/rating-empty.png"
+                      }
+                      alt="rating"
+                      key={idx}
+                    />
+                  ))}
+                </div>
+                <span className="price">
+                  {product.oldPrice && <del>{product.oldPrice}</del>}
+                  <ins> {product.newPrice}</ins>
+                </span>
 
-                  <div className="quick-view-wrapper">
-                    <div className="quick-view-container">
-                      <div className="quick-view">
-                        <div className="product-image-container">
-                          <img src={product.image} alt={product.name} />
-                          {product.sale && <div className="sale">Sale!</div>}
-                        </div>
-                        <div className="product-info">
-                          <a href="#">
-                            <h5>{product.name}</h5>
-                          </a>
-                          <span className="price">
-                            {product.oldPrice && <del>{product.oldPrice}</del>}
-                            <ins> {product.newPrice}</ins>
-                          </span>
-                          <p className="description">{product.description}</p>
-                          <form action="" className="cart">
-                            <div className="quantity">
-                              <span
-                                className="minus"
-                                onClick={() => handleQuantityChange(index, -1)}
-                              >
-                                -
-                              </span>
-                              <input
-                                type="number"
-                                value={
-                                  quantities[categories[categoryIndex]]?.[
-                                    index
-                                  ] || 1
-                                }
-                                min="1"
-                                readOnly
-                              />
-                              <span
-                                className="plus"
-                                onClick={() => handleQuantityChange(index, 1)}
-                              >
-                                +
-                              </span>
-                            </div>
-                            <div className="add-to-cart">
-                              <a
-                                href="#"
-                                className="button-one"
-                                onClick={() => handleAddToCart(index)}
-                              >
-                                ADD TO CART
-                                <img
-                                  src="/assets/check.png"
-                                  alt=""
-                                  id={`check-img-${categories[categoryIndex]}-${index}`}
-                                  style={{ display: "none" }}
-                                />
-                              </a>
-                            </div>
-                          </form>
-                          <p className="category-name">
-                            Category: <a>{product.categoryName}</a>
-                          </p>
-                          {product.extrasHeading && (
-                            <p className="extras-heading">
-                              {product.extrasHeading}
-                            </p>
-                          )}
-                          {product.extras && (
-                            <ul>
-                              {product.extras.map((extra, idx) => (
-                                <li key={idx}>
-                                  <img src="/assets/check-circle.png" alt="" />
-                                  {extra}
-                                </li>
-                              ))}
-                            </ul>
-                          )}
-                        </div>
-                      </div>
-                    </div>
+                {quickViewIndex === index && (
+                  <>
                     <div
-                      className="close"
+                      className="quick-view-background"
                       onClick={() => handleQuickViewClose(index)}
                     >
-                      <img src="/assets/close.png" alt="" />
+                      <div className="loader"></div>
                     </div>
-                  </div>
-                </>
-              )}
-            </li>
+
+                    <div className="quick-view-wrapper">
+                      <div className="quick-view-container">
+                        <div className="quick-view">
+                          <div className="product-image-container">
+                            <img src={product.image} alt={product.name} />
+                            {product.sale && <div className="sale">Sale!</div>}
+                          </div>
+                          <div className="product-info">
+                            <a href="#">
+                              <h5>{product.name}</h5>
+                            </a>
+                            <span className="price">
+                              {product.oldPrice && (
+                                <del>{product.oldPrice}</del>
+                              )}
+                              <ins> {product.newPrice}</ins>
+                            </span>
+                            <p className="description">{product.description}</p>
+                            <form action="" className="cart">
+                              <div className="quantity">
+                                <span
+                                  className="minus"
+                                  onClick={() =>
+                                    handleQuantityChange(index, -1)
+                                  }
+                                >
+                                  -
+                                </span>
+                                <input
+                                  type="number"
+                                  value={
+                                    quantities[categories[categoryIndex]]?.[
+                                      index
+                                    ] || 1
+                                  }
+                                  min="1"
+                                  readOnly
+                                />
+                                <span
+                                  className="plus"
+                                  onClick={() => handleQuantityChange(index, 1)}
+                                >
+                                  +
+                                </span>
+                              </div>
+                              <div className="add-to-cart">
+                                <a
+                                  href="#"
+                                  className="button-one"
+                                  onClick={() => handleAddToCart(index)}
+                                >
+                                  ADD TO CART
+                                  <img
+                                    src="/assets/check.png"
+                                    alt=""
+                                    id={`check-img-${categories[categoryIndex]}-${index}`}
+                                    style={{ display: "none" }}
+                                  />
+                                </a>
+                              </div>
+                            </form>
+                            <p className="category-name">
+                              Category: <a>{product.categoryName}</a>
+                            </p>
+                            {product.extrasHeading && (
+                              <p className="extras-heading">
+                                {product.extrasHeading}
+                              </p>
+                            )}
+                            {product.extras && (
+                              <ul>
+                                {product.extras.map((extra, idx) => (
+                                  <li key={idx}>
+                                    <img
+                                      src="/assets/check-circle.png"
+                                      alt=""
+                                    />
+                                    {extra}
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        className="close"
+                        onClick={() => handleQuickViewClose(index)}
+                      >
+                        <img src="/assets/close.png" alt="" />
+                      </div>
+                    </div>
+                  </>
+                )}
+              </li>
+            </NavLink>
           ))}
         </ul>
       </div>

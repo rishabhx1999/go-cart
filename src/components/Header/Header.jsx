@@ -66,7 +66,9 @@ const Header = () => {
   return (
     <div className="header-wrapper" id="myHeader">
       <div className="header-container">
-        <img className="header-logo-image" src="/assets/logo.png" alt="" />
+        <NavLink to="/">
+          <img className="header-logo-image" src="/assets/logo.png" alt="" />
+        </NavLink>
         <div className="header-right">
           <ul className="header-menu">
             <li>

@@ -35,12 +35,16 @@
     text-align: center;
 }
 
+.login-form .password {
+    position: relative;
+}
+
 .login-form label {
     position: absolute;
     color: var(--tertiary-color);
     font-size: 11px;
     margin-top: 9px;
-    padding: 0 13px;
+    padding: 0 16px;
     line-height: 1.625;
     white-space: nowrap;
     overflow: hidden;
@@ -49,6 +53,11 @@
     z-index: 1;
     transition: opacity .2s ease-out;
     opacity: 0;
+}
+
+.login-form label span {
+    color: red;
+    font-weight: 700;
 }
 
 .login-form input {
@@ -68,6 +77,10 @@
     font-family: "Barlow";
 }
 
+.login-form .password input {
+    padding: 14px 43px 14px 13px;
+}
+
 .login-form label:has(+input:focus) {
     opacity: 1;
 }
@@ -79,4 +92,60 @@
     color: black;
     outline: none;
     padding: 23px 13px 6px;
+}
+
+.login-form .password input:focus {
+    padding: 23px 43px 6px 13px;
+}
+
+.login-form img {
+    position: absolute;
+    width: auto;
+    height: 17px;
+    top: 24px;
+    right: 10px;
+    cursor: pointer;
+    filter: invert(42%) sepia(27%) saturate(208%) hue-rotate(169deg) brightness(98%) contrast(85%);
+}
+
+.login-form .remember-me {
+    display: flex;
+    align-items: center;
+}
+
+.login-form input[type=checkbox] {
+    border: 1px solid var(--accent-color);
+    background-color: #fff;
+    border-radius: 3px;
+    width: 16px;
+    height: 16px;
+    margin: 0 5px 0 0;
+}
+
+.login-form label:last-child {
+    font-weight: 600;
+    line-height: 2;
+    font-size: 14px;
+    color: var(--tertiary-color);
+    font-family: "Barlow";
+    position: inherit;
+    margin: 0;
+    padding: 0;
+    opacity: initial;
+}
+
+.login-form .button-one {
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    margin: 24px 3px 20px;
+}
+
+.login-form a:last-child {
+    color: var(--accent-color);
+    cursor: pointer;
+    font-family: "Barlow";
+    line-height: 1.8em;
+    display: flex;
+    justify-content: center;
 }

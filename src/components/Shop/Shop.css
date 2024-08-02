@@ -59,7 +59,7 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.shop-container .products-list>li {
+.shop-container .products-list>a>li {
     margin: 0 0 40px;
     display: flex;
     flex-direction: column;
@@ -68,7 +68,7 @@
     padding-bottom: 19px;
 }
 
-.shop-container .products-list>li:hover {
+.shop-container .products-list>a>li:hover {
     box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, .1);
 }
 

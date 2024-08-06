@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "./ProductDetail.css";
 
 const ProductDetail = () => {
-  const [quantities, setQuantities] = useState({});
-  var productDetail = {
+  const [quantity, setQuantity] = useState(1);
+  const productDetail = {
     image: "/assets/fp-tshirts-1.jpg",
     sale: true,
     categoryName: "Tshirts",
@@ -21,104 +21,80 @@ const ProductDetail = () => {
     ],
   };
 
-  const handleQuantityChange = (productIndex, delta) => {
-    setQuantities((prevQuantities) => {
-      const category = categories[categoryIndex];
-      const newQuantities = { ...prevQuantities };
-      newQuantities[category] = newQuantities[category] || {};
-      console.log(
-        "handleQuantityChange" + newQuantities[category][productIndex]
-      );
-      newQuantities[category][productIndex] =
-        (newQuantities[category][productIndex] || 1) + delta;
-      if (newQuantities[category][productIndex] < 1) {
-        newQuantities[category][productIndex] = 1;
-      }
-      return newQuantities;
+  const handleQuantityChange = (delta) => {
+    setQuantity((prevQuantity) => {
+      const newQuantity = prevQuantity + delta;
+      return newQuantity < 1 ? 1 : newQuantity;
     });
   };
 
-  const handleAddToCart = (productIndex) => {
-    const category = categories[categoryIndex];
-    const quantity = quantities[category]?.[productIndex] || 1;
+  const handleAddToCart = () => {
     if (quantity < 1 || !Number.isInteger(quantity)) {
       alert("Quantity must be a natural number");
       return;
     }
-    document.getElementById(
-      `check-img-${category}-${productIndex}`
-    ).style.display = "inline-block";
+    document.getElementById(`check-img`).style.display = "inline-block";
   };
 
   return (
     <div className="product-detail-wrapper">
-      <div className="quick-view">
-        <div className="product-image-container">
-          <img src={productDetail.image} alt={productDetail.name} />
-          {product.sale && <div className="sale">Sale!</div>}
-        </div>
-        <div className="product-info">
-          <a href="#">
-            <h5>{productDetail.name}</h5>
-          </a>
-          <span className="price">
-            {productDetail.oldPrice && <del>{productDetail.oldPrice}</del>}
-            <ins> {productDetail.newPrice}</ins>
-          </span>
-          <p className="description">{productDetail.description}</p>
-          <form action="" className="cart">
-            <div className="quantity">
-              <span
-                className="minus"
-                onClick={() => handleQuantityChange(index, -1)}
-              >
-                -
-              </span>
-              <input
-                type="number"
-                value={quantities[categories[categoryIndex]]?.[index] || 1}
-                min="1"
-                readOnly
-              />
-              <span
-                className="plus"
-                onClick={() => handleQuantityChange(index, 1)}
-              >
-                +
-              </span>
-            </div>
-            <div className="add-to-cart">
-              <a
-                href="#"
-                className="button-one"
-                onClick={() => handleAddToCart(index)}
-              >
-                ADD TO CART
-                <img
-                  src="/assets/check.png"
-                  alt=""
-                  id={`check-img-${categories[categoryIndex]}-${index}`}
-                  style={{ display: "none" }}
-                />
-              </a>
-            </div>
-          </form>
-          <p className="category-name">
-            Category: <a>{product.categoryName}</a>
-          </p>
-          {product.extrasHeading && (
-            <p className="extras-heading">{product.extrasHeading}</p>
-          )}
-          {product.extras && (
-            <ul>
-              {product.extras.map((extra, idx) => (
-                <li key={idx}>
-                  <img src="/assets/check-circle.png" alt="" />
-                  {extra}
-                </li>
-              ))}
-            </ul>
-          )}
+      <div className="product-detail-container">
+        <div className="product-main-info">
+          <div className="product-image-container">
+            <img src={productDetail.image} alt={productDetail.name} />
+            {productDetail.sale && <div className="sale">Sale!</div>}
+          </div>
+          <div>
+            <a href="#">
+              <h5>{productDetail.name}</h5>
+            </a>
+            <span className="price">
+              {productDetail.oldPrice && <del>{productDetail.oldPrice}</del>}
+              <ins> {productDetail.newPrice}</ins>
+            </span>
+            <p className="description">{productDetail.description}</p>
+            <form action="" className="cart">
+              <div className="quantity">
+                <span
+                  className="minus"
+                  onClick={() => handleQuantityChange(-1)}
+                >
+                  -
+                </span>
+                <input type="number" value={quantity} min="1" readOnly />
+                <span className="plus" onClick={() => handleQuantityChange(1)}>
+                  +
+                </span>
+              </div>
+              <div className="add-to-cart">
+                <a href="#" className="button-one" onClick={handleAddToCart}>
+                  ADD TO CART
+                  <img
+                    src="/assets/check.png"
+                    alt=""
+                    id="check-img"
+                    style={{ display: "none" }}
+                  />
+                </a>
+              </div>
+            </form>
+            <p className="category-name">
+              Category: <a>{productDetail.categoryName}</a>
+            </p>
+            {productDetail.extrasHeading && (
+              <p className="extras-heading">{productDetail.extrasHeading}</p>
+            )}
+            {productDetail.extras && (
+              <ul>
+                {productDetail.extras.map((extra, idx) => (
+                  <li key={idx}>
+                    <img src="/assets/check-circle.png" alt="" />
+                    {extra}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
         </div>
       </div>
     </div>
